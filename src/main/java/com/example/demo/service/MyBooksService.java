@@ -34,4 +34,34 @@ public class MyBooksService {
 		}
 		return data;
 	}
+	
+	public void InsertMyBooks(String Title,Double Price) 
+	{
+		try {
+			rep.InsertMyBooks(Title, Price);
+		}catch(Exception e) 
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	public void DeleteMyBooks(Integer Id) 
+	{
+		try {
+			rep.DeleteMyBooks(Id);
+		}catch(Exception e) 
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	public void UpdateMyBooks(String Title,Double Price,Integer Id)
+	{
+		try {
+			rep.UpdateMyBooks(Id,Title,Price);
+		}catch(Exception e) 
+		{
+			e.printStackTrace();
+		}
+	}
 }
