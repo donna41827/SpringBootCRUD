@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MyBooks List</title>
+</head>
+<body>
+
+<h1>MyBooks List</h1>
+<p>This is a paragraph.</p>
+<table>
+	<tr th:each="MyBooks:${MyBooks}">
+		<td th:text="${MyBooks.Id}">1</td>
+		<td th:text="${MyBooks.Title}">標題</td>
+		<td th:text="${MyBooks.Price}">100</td>
+	</tr>
+</table>
+</body>
+</html>
