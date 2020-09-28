@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MyBooks List</title>
+<title>MyBooks列表</title>
 </head>
 <body>
 
-<h1>MyBooks List</h1>
-<p>This is a paragraph.</p>
+<h1>MyBooks列表</h1>
+<a href="/MyBooksPageAdd">新增</a>
 <table>
 	<tr th:each="MyBooks:${MyBooks}">
 		<td th:text="${MyBooks.Id}">1</td>
 		<td th:text="${MyBooks.Title}">標題</td>
 		<td th:text="${MyBooks.Price}">100</td>
+		<td><a th:href="@{'/MyBooksPageUpd?Id='+${MyBooks.Id}}">修改</a></td>
+		<td><a th:href="@{'/MyBooksPageDel?Id='+${MyBooks.Id}}">刪除</a></td>	
 	</tr>
 </table>
 </body>

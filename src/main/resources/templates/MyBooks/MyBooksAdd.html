@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MyBooks新增</title>
+</head>
+<body>
+
+	<h1>MyBooks新增</h1>
+
+	<form action="#" th:action="@{/MyBooksPageAdd}" th:object="${MyBooks}" method="post">
+    <label for="Title">書名</label>
+    <input type="text" th:field="*{Title}" id="Title" placeholder="Title">
+    <span th:if="${#fields.hasErrors('Title')}" th:errors="*{Title}"></span>
+    <label for="Price">價錢</label>
+    <input type="text" th:field="*{Price}" id="Price" placeholder="Price">
+    <span th:if="${#fields.hasErrors('Price')}" th:errors="*{Price}"></span>
+    <input type="submit" value="新增">   
+	</form>
+	
+</body>
+</html>

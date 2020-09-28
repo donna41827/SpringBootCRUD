@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MyBooks修改</title>
+</head>
+<body>
+
+	<h1>MyBooks修改</h1>
+
+	<form action="#" th:action="@{/MyBooksPageUpd}" th:object="${MyBooks}" method="post">
+	<input type="hidden" th:field="${MyBooks.Id}">
+    <label for="Title">書名</label>
+    <input type="text" th:field="*{Title}" id="Title" placeholder="Title">
+    <span th:if="${#fields.hasErrors('Title')}" th:errors="*{Title}"></span><br>
+    <label for="Price">價錢</label>
+    <input type="text" th:field="*{Price}" id="Price" placeholder="Price">
+    <span th:if="${#fields.hasErrors('Price')}" th:errors="*{Price}"></span><br>
+    <input type="submit" value="修改">   
+	</form>
+	
+</body>
+</html>

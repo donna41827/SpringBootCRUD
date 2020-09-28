@@ -17,6 +17,9 @@ public interface MyBooksRepository extends CrudRepository<MyBooksModel,Long> {
 	@Query(nativeQuery=true,value="SELECT * FROM [MyTestDB].[dbo].[MyBooks]")
 	List<MyBooksModel> getAll();
 	
+	@Query(nativeQuery=true,value="SELECT * FROM [MyTestDB].[dbo].[MyBooks] where Id= :Id")
+	MyBooksModel getById(@Param("Id") Integer Id);
+	
 	@Modifying
 	@Query(nativeQuery=true,value="INSERT INTO [MyTestDB].[dbo].[MyBooks] SELECT Title= :Title,Price= :Price")
 	@Transactional
