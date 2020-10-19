@@ -36,6 +36,17 @@ public class MyBooksService {
 		return data;
 	}
 	
+	public List<MyBooksModel> getByTitle(String Title) {
+		List<MyBooksModel> data = rep.getByTitle(Title);
+		try {
+			System.out.println(mapper.writeValueAsString(data));
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return data;
+	}
+	
 	public void InsertMyBooks(String Title,Double Price) 
 	{
 		try {

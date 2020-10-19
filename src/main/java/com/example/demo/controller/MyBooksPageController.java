@@ -27,12 +27,28 @@ public class MyBooksPageController {
 	private MyBooksService service;
 	
 	@RequestMapping("/MyBooksPage")
-	public String List(Model model) 
+	public String List(Model model,@RequestParam(value = "Title", required=false) String Title) 
 	{
-		List<MyBooksModel> result = service.getAll();
+		List<MyBooksModel> result;
+		if(Title == null) 
+		{
+			result = service.getAll();
+		}
+		else 
+		{
+			result = service.getByTitle(Title);
+		}
 		model.addAttribute("MyBooks",result);
 		return "MyBooks/MyBooks";
 	}
+	
+//	@RequestMapping(value="/MyBooksPage",method = RequestMethod.GET)
+//	public String SelectList(Model model,@RequestParam(value = "Title") String Title) 
+//	{
+//		List<MyBooksModel> result = service.getByTitle(Title);
+//		model.addAttribute("MyBooks",result);
+//		return "MyBooks/MyBooks";
+//	}
 	
 	@RequestMapping("/MyBooksPageAdd")
 	public String Add(Model model) 

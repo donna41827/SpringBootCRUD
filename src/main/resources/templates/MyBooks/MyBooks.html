@@ -7,6 +7,12 @@
 
 <h1>MyBooks列表</h1>
 <a href="/MyBooksPageAdd">新增</a>
+<br><br>
+<form method="get" th:action="@{/MyBooksPage}">
+<label for="Title">書名搜尋</label>
+<input type="text" th:name="Title" th:placeholder="Title" >
+<input type="submit" value="搜尋"><br><br>
+</form>
 <table>
 	<tr th:each="MyBooks:${MyBooks}">
 		<td th:text="${MyBooks.Id}">1</td>
